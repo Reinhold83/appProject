@@ -11,7 +11,6 @@ from flask import send_file
 from flask_mail import Mail, Message as mMail
 import os
 import urllib.parse
-from config import ADMINS
 #from flask_sqlalchemy import SQLAlchemy
 
 
@@ -20,6 +19,14 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'oratoroeuaroupadoreideroma123'
 app.config['DEBUG'] = True
+app.config['MAIL_USERNAME'] = 'irishousingproject@gmail.com'
+app.config['MAIL_SERVER']: 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_USERNAME'] = 'irishousingproject@gmail.com',
+app.config['MAIL_PASSWORD'] = 'irish_housingProject19'
+app.config['Mail_DEFAULT_SENDER'] = 'default_sender_email'
+
 #app.config.update(mail_settings)
 
 
@@ -86,10 +93,10 @@ def Contact():
             return render_template('Contact.html', form=form)
         else:
             msg = mMail(subject=form.subject,
-                          sender=form.email, recipients='MAIL_USERNAME',
+                          sender=form.email, recipients=['reciever_mail_id'],
                           body=form.message)
             msg.body = form.message
-            #msg.html ='<b>HTML</b> body'
+            #
             #with app.app_context():
             mail.send(msg)
             #msg.body = "%s %s"
@@ -113,6 +120,7 @@ def file_downloads():
 @app.route('/return-files/')
 def return_files():
     try:
+        
         return send_file('C:/Users/rapha/Documents/College/appProject/static/toDownload/project.pdf', attachment_filename='project.pdf')
     except Exception as e:
         return str(e)
@@ -121,7 +129,7 @@ def return_files():
 @app.route('/return-files1/')
 def return_files1():
     try:
-        return redirect('https://github.com/Reinhold83/housingApp.git')
+        return redirect('https://github.com/Reinhold83/appProject.git')
     except Exception as e:
         return str(e)
 

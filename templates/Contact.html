@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contactstyle6.css') }}">
+
+
+  <div style="height: 110px; background-color: #d5fcf3;">
+    <h1 style='margin:6px'>Irish Housing Stock Survey</h1>
+    <h3 style = 'text-align:center; color=#ff7900; font-style:italic; margin:6px'>Helping to build the real picture of the Irish Housing Market.</h3>
+  </div>
+  
+  </head>
+
+<div>    
+    <strong><nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <ul class='navbar-nav'>
+            <li><a class="nav-item nav-link" href="{{ url_for('index')}}">Home</a></li>
+            <li><a class="nav-item nav-link" href="{{ url_for('About')}}">About</a></li>
+            <li><a class="nav-item nav-link" href="{{ url_for('Design')}}">Design</a></li>
+            <li><a class="nav-item nav-link" href="{{ url_for('Contact')}}">Contact us</a></li>
+        </ul>
+    </nav></strong>
+    </div>
+    <body>
+
+    <table width=100% height=95%>
+    <tr><td width=55%>
+
+      {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+      {% endfor %}
+
+      <div class='form-style-6'>
+      <form  action="" method="post" role="form">
+        {{ form.csrf_token }}
+        {{ form.hidden_tag() }}
+                  
+        {{ form.name.label }}
+        {{ form.name }}
+    
+        {{ form.email.label }}
+        {{ form.email }}
+    
+        {{ form.subject.label }}
+        {{ form.subject }}
+    
+        {{ form.message.label }}
+        {{ form.message }}
+    
+        <center>
+        <button type="submit" class="btn btn-success">Submit</button>
+        </center>
+      </form>
+      </div>
+      </td>
+    <td width=45%>
+    <center>
+    <div class='font-italic', style = "margin: 5px;  font-size:21px;">
+    <b>College: </b>The Ulster University<br>
+    <b>Course:</b> Software Development/Data Analysis<br>
+    <b>Student:</b> Raphael Nogueira<br>
+    <b>Project:</b> COM658(72238) - Project 2019-20<br>
+    <b>Subject:</b> Irish Housing Market<br>
+    <b>Skills:</b> Python 3, pandas, numpy, Bokeh, Matplotlib,<br>
+    Seaborn, HTML, CSS, Flask, VScode, DataBase, Azure, GIS
+    </div>
+    </center>
+
+    </body>
+</html>

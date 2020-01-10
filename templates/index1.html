@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+  <div style="height: 110px; background-color: #d5fcf3;">
+    <h1 style='margin:6px'>Irish Housing Stock Survey</h1>
+    <h3 style = 'text-align:center; color=#ff7900; font-style:italic; margin:6px'>Helping to build the real picture of the Irish Housing Market.</h3>
+  </div>
+
+  </head>
+    <div>    
+    <strong><nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <ul class='navbar-nav'>
+            <li><a class="nav-item nav-link" href="{{ url_for('index')}}">Home</a></li>
+            <li><a class="nav-item nav-link" href="{{ url_for('About')}}">About</a></li>
+            <li><a class="nav-item nav-link" href="{{ url_for('Design')}}">Design</a></li>
+            <li><a class="nav-item nav-link" href="{{ url_for('Contact')}}">Contact us</a></li>
+        </ul>
+    </nav></strong>
+    </div>
+    
+  <body>
+  
+    <div class=container"><br>
+    <div class="row align-items-center justify-content-center">
+    <div class="col-md-4">
+      <form  action="" method="post" role="form">
+        {{ form.csrf_token }}
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+          <label for="Email">Email address:</label>
+          <input type="text" class="form-control" id="Email" name="Email" placeholder='Enter your email address please' required>
+            <br>
+          <div class="form-group">
+            <label for="sex:">Select your sex:</label>
+            <select class="form-control" name="sex" id="sex">
+              <option value='{{ request.form.sex}}'></option>
+              <option value='{{ request.form.sex}}'>Male</option>
+              <option value='{{ request.form.sex}}'>Female</option>
+              <option value='{{ request.form.sex}}'>Prefer not to say</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="age:">Select your age group:</label>
+            <select class="form-control" name="age" id="age">
+              <option value='{{ request.form.age}}'></option>
+              <option value='{{ request.form.age}}'>Under 14</option>
+              <option value='{{ request.form.age}}'>Between 15 - 19</option>
+              <option value='{{ request.form.age}}'>Between 20 - 14</option>
+              <option value='{{ request.form.age}}'>Between 25 - 29</option>
+              <option value='{{ request.form.age}}'>Between 30 - 34</option>
+              <option value='{{ request.form.age}}'>Between 35 - 39</option>
+              <option value='{{ request.form.age}}'>Between 40 - 44</option>
+              <option value='{{ request.form.age}}'>Between 45 - 49</option>
+              <option value='{{ request.form.age}}'>Between 50 - 54</option>
+              <option value='{{ request.form.age}}'>Between 55 - 59</option>
+              <option value='{{ request.form.age}}'>Between 60 - 64</option>
+              <option value='{{ request.form.age}}'>Between 65 - 69</option>
+              <option value='{{ request.form.age}}'>Between 70 - 74</option>
+              <option value='{{ request.form.age}}'>Between 75 - 79</option>
+              <option value='{{ request.form.age}}'>Between 80 - 84</option>
+              <option value='{{ request.form.age}}'>Over 85</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="Marital:">Select your marital state:</label>
+            <select class="form-control" name="Marital" id="Marital">
+              <option value='{{ request.form.Marital}}'></option>
+              <option value='{{ request.form.Marital}}'>Single</option>
+              <option value='{{ request.form.Marital}}'>Married</option>
+              <option value='{{ request.form.Marital}}'>Divorced</option>
+              <option value='{{ request.form.Marital}}'>Widow</option>
+              <option value='{{ request.form.Marital}}'>Prefer not to say</option>
+            </select>
+          <br>
+          <div class="form-group">
+            <label for="county:">Select your county:</label>
+            <select class="form-control" name="county" id='county' >
+            <option value='{{ request.form.county}}'></option>
+              <option value='{{ request.form.county}}'>Carlow</option>
+              <option value='{{ request.form.county}}'>Cavan</option>
+              <option value='{{ request.form.county}}'>Clare</option>
+              <option value='{{ request.form.county}}'>Cork</option>
+              <option value='{{ request.form.county}}'>Donegal</option>
+              <option value='{{ request.form.county}}'>Dublin</option>
+              <option value='{{ request.form.county}}'>Galway</option>
+              <option value='{{ request.form.county}}'>Kerry</option>
+              <option value='{{ request.form.county}}'>Kildare</option>
+              <option value='{{ request.form.county}}'>Kilkenny</option>
+              <option value='{{ request.form.county}}'>Laois</option>
+              <option value='{{ request.form.county}}'>Letrim</option>
+              <option value='{{ request.form.county}}'>Limerick</option>
+              <option value='{{ request.form.county}}'>Longford</option>
+              <option value='{{ request.form.county}}'>Louth</option>
+              <option value='{{ request.form.county}}'>Mayo</option>
+              <option value='{{ request.form.county}}'>Meath</option>
+              <option value='{{ request.form.county}}'>Monaghan</option>
+              <option value='{{ request.form.county}}'>Offaly</option>
+              <option value='{{ request.form.county}}'>Roscommon</option>
+              <option value='{{ request.form.county}}'>Sligo</option>
+              <option value='{{ request.form.county}}'>Tipperary</option>
+              <option value='{{ request.form.county}}'>Waterford</option>
+              <option value='{{ request.form.county}}'>Westmeath</option>
+              <option value='{{ request.form.county}}'>Wexford</option>
+              <option value='{{ request.form.county}}'>Wicklow</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="PropertyStatus:">Select the type of property:</label>
+            <select class="form-control" name="PropertyStatus" id="PropertyStatus" >
+              <option value='{{ request.form.PropertyStatus}}'></option>
+              <option value='{{ request.form.PropertyStatus}}'>Owner</option>
+              <option value='{{ request.form.PropertyStatus}}'>Owner with mortgage</option>
+              <option value='{{ request.form.PropertyStatus}}'>Family Property</option>
+              <option value='{{ request.form.PropertyStatus}}'>Rental</option>
+              <option value='{{ request.form.PropertyStatus}}'>Rental shared</option>
+              <option value='{{ request.form.PropertyStatus}}'>Rental shared room</option>
+              <option value='{{ request.form.PropertyStatus}}'>Social Housing</option>
+              <option value='{{ request.form.PropertyStatus}}'>HAP/RAS</option>
+              <option value='{{ request.form.PropertyStatus}}'>Others</option>
+            </select>
+          <br>
+           <div class="form-group">
+            <label for="AmountPaid:">Value rent/mortgage in €:</label>
+            <input type="number" class="form-control" id="AmountPaid" name="AmountPaid" placeholder='Please enter value' required>
+            <br>
+          <div class="form-group">
+            <label for="Rooms:">Number of rooms:</label>
+            <select class="form-control" name="Rooms" id="Rooms">
+              <option value='{{ request.form.Rooms }}'></option>
+              <option value='{{ request.form.Rooms }}'>Studio</option>
+              <option value='{{ request.form.Rooms }}'>One room</option>
+              <option value='{{ request.form.Rooms }}'>Two rooms</option>
+              <option value='{{ request.form.Rooms }}'>Three rooms</option>
+              <option value='{{ request.form.Rooms }}'>Four rooms</option>
+              <option value='{{ request.form.Rooms }}'>Five rooms or more</option>
+            </select>
+            <br>
+            <div class="form-group">
+            <label for="People:">People per household:</label>
+            <input type="number" class="form-control" id="People" name="People" placeholder='Please enter the number of people per household.' required>
+  </div>
+        <br>                             
+        <center>
+          <button type="submit" class="btn btn-success">Submit</button>
+        </center>
+      </form>
+      <br>
+        {% with messages = get_flashed_messages(with_categories=false) %}
+            {% if messages %}
+        {% for message in messages %}
+            {% if "error" not in message[1]: %}
+                <div class="alert alert-info">
+                <strong>Success! </strong> {{ message[::] }}
+                </div>
+            {% endif %}
+            {% if "error" in message[1]: %}
+                <div class="alert alert-danger">
+                <strong>error: </strong> {{ message[1] }}
+                </div>
+            {% endif %}
+        {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <br>
+    </div>
+    </div>
+  </body>
+</html>
